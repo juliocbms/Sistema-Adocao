@@ -1,0 +1,6 @@
+Nome do Animal: 
+Raça: 
+Idade (anos): 
+Peso (kg): 
+Sexo: 
+É castrado? (true/false): 

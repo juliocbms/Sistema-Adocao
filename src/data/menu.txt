@@ -1,0 +1,14 @@
+
+=== SISTEMA DE ADOÇÃO ===
+1. Cadastrar Adotante
+2. Cadastrar Cachorro
+3. Cadastrar Gato
+4. Realizar Adoção
+5. Listar Adotantes
+6. Listar Animais Disponíveis
+7. Listar Todas Adoções
+8. Excluir Registros
+9. Editar Registros
+10. Cuidados
+0. Sair
+Opção: 
