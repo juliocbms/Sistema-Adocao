@@ -8,6 +8,12 @@ public class Adocao {
     private Animal animal;
     private LocalDateTime dataAdocao;
 
+    public Adocao(Adotante adotante, Animal animal,LocalDateTime dataAdocao) {
+        this.adotante = adotante;
+        this.animal = animal;
+        this.dataAdocao = LocalDateTime.now();
+    }
+
     public Adocao(Adotante adotante, Animal animal) {
         this.adotante = adotante;
         this.animal = animal;

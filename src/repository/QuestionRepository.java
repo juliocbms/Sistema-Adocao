@@ -39,9 +39,10 @@ public class QuestionRepository {
                 bw.write("5. Listar Adotantes\n");
                 bw.write("6. Listar Animais Disponíveis\n");
                 bw.write("7. Listar Todas Adoções\n");
-                bw.write("8. Excluir Registros\n");
-                bw.write("9. Editar Registros\n");
-                bw.write("10. Cuidados\n");
+                bw.write("8. Listar Adoções com Filtro\n");
+                bw.write("9. Excluir Registros\n");
+                bw.write("10. Editar Registros\n");
+                bw.write("11. Cuidados\n");
                 bw.write("0. Sair\n");
                 bw.write("Opção: ");
             } catch (IOException e) {

@@ -62,6 +62,10 @@ public class Main {
                     break;
 
                 case 8:
+                    adocaoUI.menuRelatorios();
+                    break;
+
+                case 9:
                     System.out.println("1 - Excluir Animal | 2 - Excluir Adotante");
                     String sub = sc.nextLine();
                     if (sub.equals("1")) {
@@ -72,7 +76,7 @@ public class Main {
                         System.out.println("Opção inválida.");
                     }
                     break;
-                case 9:
+                case 10:
                     System.out.println("\n--- Menu Edição ---");
                     System.out.println("1 - Editar Animal");
                     System.out.println("2 - Editar Adotante");
@@ -87,7 +91,7 @@ public class Main {
                         System.out.println("Opção inválida.");
                     }
                     break;
-                case 10:
+                case 11:
                     animalUI.administrarCuidados();
                     break;
                 case 0:

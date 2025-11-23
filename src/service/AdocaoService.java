@@ -10,7 +10,9 @@ import repository.AdocaoRepository;
 import repository.AdotanteRepository;
 import repository.AnimalRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AdocaoService {
 
@@ -22,6 +24,22 @@ public class AdocaoService {
         this.adocaoRepository = new AdocaoRepository();
         this.adotanteRepository = new AdotanteRepository();
         this.animalRepository = new AnimalRepository();
+    }
+
+    public List<Adocao> filtrarPorAdotante(String nomeParcial) {
+        return adocaoRepository.listarTodas().stream()
+                .filter(a -> a.getAdotante().getNome().toLowerCase().contains(nomeParcial.toLowerCase()))
+                .collect(Collectors.toList());
+    }
+
+    public List<Adocao> filtrarPorPeriodo(LocalDateTime inicio, LocalDateTime fim) {
+        return adocaoRepository.listarTodas().stream()
+                .filter(a -> {
+                    LocalDateTime data = a.getDataAdocao();
+                    return (data.isEqual(inicio) || data.isAfter(inicio)) &&
+                            (data.isEqual(fim) || data.isBefore(fim));
+                })
+                .collect(Collectors.toList());
     }
 
     public void realizarAdocao(String idAdotante, String idAnimal) throws LimiteAdocoesException, AnimalIndisponivelException {

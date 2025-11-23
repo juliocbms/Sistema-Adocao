@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,15 +50,22 @@ public class AdocaoRepository {
             String linha;
             while ((linha = br.readLine()) != null) {
                 if (linha.trim().isEmpty()) continue;
+
                 String[] partes = linha.split(";");
                 if (partes.length < 3) continue;
 
+                try {
+                    String dataString = partes[0];
+                    LocalDateTime dataHistorica = LocalDateTime.parse(dataString);
 
-                Adotante adotante = adotanteRepository.buscarPorId(partes[1]);
-                Animal animal = animalRepository.buscarPorId(partes[2]);
+                    Adotante adotante = adotanteRepository.buscarPorId(partes[1]);
+                    Animal animal = animalRepository.buscarPorId(partes[2]);
 
-                if (adotante != null && animal != null) {
-                    adocoes.add(new Adocao(adotante, animal));
+                    if (adotante != null && animal != null) {
+                        adocoes.add(new Adocao(adotante, animal, dataHistorica));
+                    }
+                } catch (Exception e) {
+                    System.err.println("Ignorando linha inválida no histórico: " + linha);
                 }
             }
         } catch (IOException e) {
